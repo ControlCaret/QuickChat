@@ -23,7 +23,7 @@ void NcursesDisplay::DisplayUsers(WINDOW *window, std::shared_ptr<Client> client
     std::vector<int> users = client->getUsers();
     
     wattron(window, A_BOLD);
-    wattron(window, COLOR_PAIR(2)));
+    wattron(window, COLOR_PAIR(2));
     mvwprintw(window, row++, column, "Logged Users:");
     wattroff(window, COLOR_PAIR(2));
     wattron(window, COLOR_PAIR(2));
