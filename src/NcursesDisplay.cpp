@@ -94,7 +94,7 @@ void NcursesDisplay::TextBox(viewwin *view) {
     int ym, xm;
     getmaxyx(stdscr, ym, xm);
 
-    WINDOW *fwin = newwin(ym * (1 - 0.7), xm * 0.7, ym * 0.7, 0);
+    WINDOW *fwin = newwin(ym * (1 - 0.8), xm * 0.8, ym * 0.8, 0);
     keypad(fwin, TRUE);
     werase(fwin);
     
@@ -234,7 +234,7 @@ void NcursesDisplay::Display(char *&ipAddress, char *&portNum) {
     
     int x_max{getmaxx(stdscr)};
     int y_max{getmaxy(stdscr)};
-    double text_x{0.60}, text_y{0.60};
+    double text_x{0.80}, text_y{0.80};
     
     WINDOW *chat_window = newwin(y_max * text_y, x_max * text_x, 0, 0);
     WINDOW *users_window = newwin(y_max - 1, x_max * (1 - text_x), 0, x_max * text_x);
