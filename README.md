@@ -41,9 +41,11 @@ Ncurses
 apt install libncurses5-dev libncursesw5-dev
 ```
 
-## 컴파일
+## 빌드
 
-TBD
+```console
+./build.sh
+```
 
 ## 실행
 
