@@ -23,7 +23,7 @@ void NcursesDisplay::DisplayUsers(WINDOW *window, std::shared_ptr<Client> client
     std::vector<int> users = client->getUsers();
     
     wattron(window, A_BOLD);
-    wattron(window, COLOR_PAIR(0));
+    wattron(window, COLOR_PAIR(1));
     mvwprintw(window, row++, column, "User List");
     wattroff(window, COLOR_PAIR(2));
     wattron(window, COLOR_PAIR(2));
@@ -32,7 +32,7 @@ void NcursesDisplay::DisplayUsers(WINDOW *window, std::shared_ptr<Client> client
     wattroff(window, A_BOLD);
     
     for (int user : users){
-        std::string temp_user = "User" + std::to_string(user); 
+        std::string temp_user = "User: " + std::to_string(user); 
         mvwprintw(window, row++, column, temp_user.c_str());
     }
 }
@@ -80,7 +80,7 @@ void NcursesDisplay::DisplayMessages(WINDOW *window, viewwin *view, std::shared_
             
             wattron(window, COLOR_PAIR(color_print));
             std::string response_text;
-            response_text = isNotPK ? Utils::trim(response) : "Key Transfered";
+            response_text = isNotPK ? Utils::trim(response) : "Key Transferred";
             mvwprintw(window, response_counter++, 1, response_text.c_str());
             wattroff(window, COLOR_PAIR(color_print));
         }
@@ -94,7 +94,7 @@ void NcursesDisplay::TextBox(viewwin *view) {
     int ym, xm;
     getmaxyx(stdscr, ym, xm);
 
-    WINDOW *fwin = newwin(ym * (1 - 0.8), xm * 0.8, ym * 0.8, 0);
+    WINDOW *fwin = newwin(ym * (1 - 0.7), xm * 0.7, ym * 0.7, 0);
     keypad(fwin, TRUE);
     werase(fwin);
     
@@ -234,7 +234,7 @@ void NcursesDisplay::Display(char *&ipAddress, char *&portNum) {
     
     int x_max{getmaxx(stdscr)};
     int y_max{getmaxy(stdscr)};
-    double text_x{0.80}, text_y{0.80};
+    double text_x{0.70}, text_y{0.70};
     
     WINDOW *chat_window = newwin(y_max * text_y, x_max * text_x, 0, 0);
     WINDOW *users_window = newwin(y_max - 1, x_max * (1 - text_x), 0, x_max * text_x);
